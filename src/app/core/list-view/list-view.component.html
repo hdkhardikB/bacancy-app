@@ -1,0 +1,39 @@
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="large" color="#fff" type="ball-beat"></ngx-spinner>
+<div fxLayout="row">
+  <div fxFlex.gt-sm="100%">
+    <mat-card>
+      <mat-toolbar>
+        <span>Products</span>
+        <span fxFlex></span>
+      </mat-toolbar>
+      <mat-card-content>
+        <section class="example-section">
+          <label class="example-margin">Categories:</label>&nbsp;
+          <mat-button-toggle-group name="fontStyle" (change)="onStautsChange()" [(ngModel)]="selectedCategory" aria-label="Font Style">
+            <mat-button-toggle *ngFor="let category of categories;let i=index" [value]="category">{{category.category_name}}</mat-button-toggle>
+          </mat-button-toggle-group>
+        </section>
+        <br>
+
+        <mat-grid-list cols="3" rowHeight="6:8">
+          <mat-grid-tile *ngFor="let product of products;let i=index">
+            <a [routerLink]="['./product']" [queryParams]="{ id: product.ID }">
+              <mat-card>
+                <mat-card-header>
+                  <mat-card-title>{{product.product_name}}</mat-card-title>
+                </mat-card-header>
+                <img mat-card-image src="{{product.thumbnail}}">
+                <mat-card-content>
+                  <p>
+                    <b>Market Price:</b> {{product.m_price|currency: 'INR':true}}</p>
+                  <p>
+                    <b>Selling Price:</b> {{product.s_price|currency: 'INR':true}}</p>
+                </mat-card-content>
+              </mat-card>
+            </a>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

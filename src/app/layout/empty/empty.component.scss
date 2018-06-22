@@ -1,0 +1,21 @@
+.contained-box-wrapper {
+  display: grid;
+  grid-template-columns: 1ft 450px 1ft;
+  height: 100vh;
+  align-items: center;
+  grid-template-areas: " . contained-box";
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  overflow: scroll;
+  .contained-box {
+    grid-area: contained-box;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    .mat-card {
+      padding: 60px;
+    }
+  }
+}

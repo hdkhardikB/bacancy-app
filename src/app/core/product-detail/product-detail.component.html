@@ -1,0 +1,31 @@
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="large" color="#fff" type="ball-beat"></ngx-spinner>
+<div fxLayout="row">
+  <div fxFlex.gt-sm="50%" *ngIf="product">
+    <mat-card>
+      <mat-card-content>
+        <br>
+        <img mat-card-image src="{{product.thumbnail}}">
+        <p>
+          <b> {{product.product_name}}</b>
+        </p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div fxFlex.gt-sm="50%">
+    <mat-card *ngIf="product">
+      <mat-card-content>
+        <mat-card-title>Product Detail</mat-card-title>
+        <p>
+          <b>Selling Price:</b>&nbsp; {{product.s_price|currency: 'INR':true}}</p>
+        <p>
+          <b>Market Price: </b>&nbsp; {{product.m_price|currency: 'INR':true}}</p>
+        <p>
+          <b>Category:</b> &nbsp;{{product.category.category_name}} </p>
+        <mat-card-subtitle>{{product.description}}</mat-card-subtitle>
+        <button mat-raised-button color="primary" (click)="addToCart()">
+          Add To Cart
+        </button>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
